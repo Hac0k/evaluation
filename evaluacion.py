@@ -8,7 +8,7 @@
 #  [1, 8, 1, 7, 6, 1, 0, 5],
 # [8, 1, 4, 3, 8, 9, 0, 9, 10]]
 entry =[]
-nombre ="test.txt"
+nombre ="sample.txt"
 # pos_in_list = next_value()
 #codigo de formato de archivo 
 def archivo(nombre):
@@ -21,7 +21,7 @@ def archivo(nombre):
 	archivo.close()
 	return entry
 entry=archivo(nombre)
-print entry
+# print entry
 def format_matriz():
     global entry
     for lists in entry:

@@ -56,15 +56,15 @@ def Sub_P(l,e):
 """cuatro parametro uno para la fila otr para la posicion del ellemento
 """
 # def evaluation_tree(entry,len_matriz,):
-
-def cont_por(l,value_route = [],elem=[0]):
+elem=[0]
+def cont_por(l,value_route = []):
 
     if len(entry[-1]) == l:
         return value_route,sum(value_route)
     else:
 		pos_elemt=elem[-1]
-		route_list,pos_elem = Sub_P(l,pos_elemt)
-		elem.append(pos_elem)
+		route_list = Sub_P(l,pos_elemt)
+		elem.append(elem)
 		value_route.append(route_list)
     return cont_por(l+1)
 
