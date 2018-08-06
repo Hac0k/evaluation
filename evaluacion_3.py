@@ -9,8 +9,6 @@
 # [8, 1, 4, 3, 8, 9, 0, 9, 10]]
 entry =[]
 nombre ="sample.txt"
-# pos_in_list = next_value()
-#codigo de formato de archivo 
 def archivo(nombre):
 	global entry
 	# archivo("sample.txt")
@@ -21,7 +19,7 @@ def archivo(nombre):
 	archivo.close()
 	return entry
 entry=archivo(nombre)
-# print entry
+print entry
 def format_matriz():
     global entry
     for lists in entry:
@@ -30,43 +28,19 @@ def format_matriz():
         # entry.append(lists)
     
     return entry
-
-
 elem=[0]
-def next_value(pos_list,pos_in_list):
-	global entry
-	lists = entry[pos_list]
-	
-	if len(lists) == 1:
-		return lists[0]
-	else:
-		if lists[pos_in_list] > lists[pos_in_list+1]:
-			elem.append(pos_in_list)
-			return lists[pos_in_list]
-
-		else:
-			elem.append(pos_in_list +1)
-			return lists[pos_in_list+1]
-
 def evaluation_tree(n,route=[]):
-	# para mover listas
 	global entry,elem
 	if n ==len(entry[-1]):
 		return route, sum(route)
 	else:
 		pos_elemt=elem[-1]
-		# route_list""",pos_elem""" = next_value(n,pos_elemt)
-		route_list = next_value(n,pos_elemt)
-		# elem.append(pos_elem)
+		route_list = sub_p(n,pos_elemt)
 		route.append(route_list)
-		# print route
 		return evaluation_tree(n+1)	
-	
-	# if pos[i] != int():
-	# 	return 1
-	# else:
 
-
-
-
-print evaluation_tree(0)
+def sub_p(posList,ele):
+    global entry
+    for x in entry:
+        for i in x:
+            print i

@@ -10,7 +10,7 @@
 [8, 1, 4, 3, 8, 9, 0, 9, 10]]
 el valor de ruta en un variable global para no afectar el funcionamiento 
 el metodo dos es sencillo coger el valor anterior y sumarle lo sgts y ver cual que el mayor 
-"""
+"""                   
 
 
 entry =[]
@@ -37,7 +37,7 @@ def format_matriz():
     
     return entry
 # entry = format_matriz()
-
+print entry
 def Sub_P(l,e):
     global entry
 
