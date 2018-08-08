@@ -52,7 +52,7 @@ def evaluation_tree(n,route=[]):
 	# para mover listas
 	global entry,elem
 	if n ==len(entry[-1]):
-		return route, sum(route)
+		return elem,route, sum(route)
 	else:
 		pos_elemt=elem[-1]
 		# route_list""",pos_elem""" = next_value(n,pos_elemt)
