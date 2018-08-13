@@ -33,14 +33,21 @@ def memoize(function):
     return wrapper
 
 
+
 @memoize
-def getmaxofsub(x, y,tem=[]):
+def evaluationTree(x, y,tem=[]):
 	if y  == len(triangle) or x>y: 
 		print tem
 		return 0
-	tem.append(triangle[y][x] + max(getmaxofsub(x, y+1), getmaxofsub(x+1, y+1)))
-	
-	return triangle[y][x] + max(getmaxofsub(x, y+1), getmaxofsub(x+1, y+1))
+	else:
+		if tem == []:
+			tem.append(triangle[y][x])
+		acer=max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
+		tem.append(acer)
+		ans = sum(tem)
+		# ans = triangle[y][x] + max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
+		print tem
+		return ans
 
 
-print getmaxofsub(0,0)
+print evaluationTree(0,0)
