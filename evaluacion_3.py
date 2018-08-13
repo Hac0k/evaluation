@@ -39,15 +39,15 @@ def evaluationTree(x, y,tem=[]):
 	if y  == len(triangle) or x>y: 
 		print tem
 		return 0
-	else:
-		if tem == []:
-			tem.append(triangle[y][x])
-		acer=max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
-		tem.append(acer)
-		ans = sum(tem)
-		# ans = triangle[y][x] + max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
-		print tem
-		return ans
+	# else:
+		# if tem == []:
+		# 	tem.append(triangle[y][x])
+		# acer=max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
+		# tem.append(acer)
+		# ans = sum(tem)
+		# # ans = triangle[y][x] + max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
+		# print tem
+	return triangle[y][x] + max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
 
 
 print evaluationTree(0,0)
