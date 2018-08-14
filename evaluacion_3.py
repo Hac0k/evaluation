@@ -35,19 +35,28 @@ def memoize(function):
 
 
 @memoize
-def evaluationTree(x, y,tem=[]):
+def evaluationTree(x, y):
+
+	# acer=max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
+	# tem.append(acer)
+	# ans = triangle[y][x] + max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
+	# ans = sum(tem)
+	# print tem
+		
 	if y  == len(triangle) or x>y: 
-		print tem
 		return 0
-	# else:
-		# if tem == []:
-		# 	tem.append(triangle[y][x])
-		# acer=max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
-		# tem.append(acer)
-		# ans = sum(tem)
-		# # ans = triangle[y][x] + max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
-		# print tem
 	return triangle[y][x] + max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
 
 
-print evaluationTree(0,0)
+# print evaluationTree(0,0)
+
+
+def total(x=0, tem=[]):
+	if tem == []:
+		tem.append(triangle[0][0])
+	for i in range(0,len(triangle)):
+		acer=max(evaluationTree(x, i+1), evaluationTree(x+1, i+1))
+		tem.append(acer)
+	# print temp
+	return tem,evaluationTree(0,0)
+print total()
