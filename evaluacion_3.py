@@ -8,8 +8,10 @@
 #  [1, 8, 1, 7, 6, 1, 0, 5],
 # [8, 1, 4, 3, 8, 9, 0, 9, 10]]
 # import copy
+# [[1,2],
+#  [3,4]]
 triangle =[]
-nombre ="sample.txt"
+nombre ="exercise.txt"
 def archivo(nombre):
 	global triangle
 	# archivo("sample.txt")
@@ -55,8 +57,8 @@ def total(x=0, tem=[]):
 	if tem == []:
 		tem.append(triangle[0][0])
 	for i in range(0,len(triangle)):
-		acer=max(evaluationTree(x, i+1), evaluationTree(x+1, i+1))
+		acer=max(evaluationTree(x, i), evaluationTree(x+1, i))
+		# acer=acer/len(triangle[i])
 		tem.append(acer)
-	# print temp
 	return tem,evaluationTree(0,0)
 print total()
