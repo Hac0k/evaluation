@@ -22,9 +22,9 @@ def archivo(nombre):
 	archivo.close()
 	return triangle
 triangle=archivo(nombre)
-
+memo={}
 def memoize(function):
-    memo = {}
+    # memo = {}
     def wrapper(*args):
       if args in memo:
         return memo[args]
@@ -35,10 +35,13 @@ def memoize(function):
     return wrapper
 
 
-
+temp_x=[]
+temp_y=[]
 @memoize
 def evaluationTree(x, y):
-
+	
+	temp_x.append(x)
+	temp_y.append(y)
 	# acer=max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
 	# tem.append(acer)
 	# ans = triangle[y][x] + max(evaluationTree(x, y+1), evaluationTree(x+1, y+1))
@@ -53,12 +56,24 @@ def evaluationTree(x, y):
 # print evaluationTree(0,0)
 
 
-def total(x=0, tem=[]):
-	if tem == []:
-		tem.append(triangle[0][0])
-	for i in range(0,len(triangle)):
-		acer=max(evaluationTree(x, i), evaluationTree(x+1, i))
-		# acer=acer/len(triangle[i])
-		tem.append(acer)
-	return tem,evaluationTree(0,0)
+def total(tem=[]):
+	total= evaluationTree(0,0)
+	print memo
+	# if tem == []:
+	# 	tem.append(triangle[0][0])
+	print total
+	print "x values "
+	print temp_x
+	print "y values "
+	print temp_y
+	print "numeracion de "
+	for x,y in zip(temp_x,temp_y):
+		print triangle[y][x]
+	# 	if x < len(triangle[-1]) or  y < len(triangle[-1]):
+		# tem.append(triangle[y][x])
+	# for i in range(0,len(triangle)):
+	# 	acer=max(evaluationTree(x, i), evaluationTree(x+1, i))
+	# 	# acer=acer/len(triangle[i])
+	# 	tem.append(acer)
+	return tem,total
 print total()
